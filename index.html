@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abel Endale | Frontend Portfolio</title>
+  <meta name="description" content="Portfolio of Abel Endale, Electrical & Computer Engineering student specializing in frontend web experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="{ mobileMenu: false, altDark: false, testimonial: 0 }"
+      :class="altDark ? 'bg-[#050505]' : 'bg-[#0a0a0a]'"
+      class="font-sans text-zinc-400 antialiased">
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-black/35 backdrop-blur-md">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+      <a href="#home" class="text-xl font-extrabold tracking-tight text-white">Abel<span class="text-[#ff5c35]">.</span></a>
+
+      <nav class="hidden flex-1 justify-center md:flex">
+        <ul class="flex items-center gap-8 text-sm font-medium">
+          <li><a href="#services" class="transition-all duration-300 hover:text-white">Services</a></li>
+          <li><a href="#work" class="transition-all duration-300 hover:text-white">Work</a></li>
+          <li><a href="#about" class="transition-all duration-300 hover:text-white">About</a></li>
+          <li><a href="#reviews" class="transition-all duration-300 hover:text-white">Reviews</a></li>
+          <li><a href="#blog" class="transition-all duration-300 hover:text-white">Blog</a></li>
+          <li><a href="#contact" class="transition-all duration-300 hover:text-white">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hidden items-center gap-3 md:flex">
+        <button @click="altDark = !altDark"
+                class="rounded-full border border-zinc-700 p-2 text-zinc-300 transition-all duration-300 hover:border-[#ff5c35] hover:text-[#ff5c35]"
+                aria-label="Toggle theme style">
+          <span x-show="!altDark" aria-hidden="true">☾</span>
+          <span x-show="altDark" aria-hidden="true">☀</span>
+        </button>
+        <a href="#contact" class="rounded-full bg-[#ff5c35] px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ff724f]">Hire me →</a>
+      </div>
+
+      <button @click="mobileMenu = !mobileMenu"
+              class="rounded-lg border border-zinc-700 p-2 text-zinc-300 transition-all duration-300 hover:border-[#ff5c35] hover:text-[#ff5c35] md:hidden"
+              aria-label="Toggle menu"
+              :aria-expanded="mobileMenu">
+        ☰
+      </button>
+    </div>
+
+    <div x-show="mobileMenu" x-transition class="border-t border-zinc-800 bg-[#0f0f0f] px-6 py-4 md:hidden">
+      <nav>
+        <ul class="space-y-3 text-sm font-medium">
+          <li><a @click="mobileMenu = false" href="#services" class="block transition-all duration-300 hover:text-white">Services</a></li>
+          <li><a @click="mobileMenu = false" href="#work" class="block transition-all duration-300 hover:text-white">Work</a></li>
+          <li><a @click="mobileMenu = false" href="#about" class="block transition-all duration-300 hover:text-white">About</a></li>
+          <li><a @click="mobileMenu = false" href="#reviews" class="block transition-all duration-300 hover:text-white">Reviews</a></li>
+          <li><a @click="mobileMenu = false" href="#blog" class="block transition-all duration-300 hover:text-white">Blog</a></li>
+          <li><a @click="mobileMenu = false" href="#contact" class="block transition-all duration-300 hover:text-white">Contact</a></li>
+          <li><a @click="mobileMenu = false" href="#contact" class="inline-flex rounded-full bg-[#ff5c35] px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ff724f]">Hire me →</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:px-10 lg:grid-cols-2 lg:py-28">
+      <div>
+        <span class="inline-flex rounded-full border border-[#ff5c35]/40 bg-[#ff5c35]/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Available for work</span>
+        <h1 class="mt-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">I build modern web experiences that convert.</h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-zinc-400 md:text-lg">
+          I’m Abel Endale, an Electrical &amp; Computer Engineering student at Addis Ababa University, specializing in computer stream with a focus on premium frontend development and user-centered products.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#work" class="rounded-full bg-[#ff5c35] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ff724f]">View my work</a>
+          <a href="#contact" class="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-[#ff5c35] hover:text-[#ff5c35]">Get in touch</a>
+        </div>
+      </div>
+      <div class="mx-auto w-full max-w-md lg:max-w-lg">
+        <img src="assets/abel-endale.png" alt="Portrait of Abel Endale" class="h-[520px] w-full rounded-2xl object-cover object-top shadow-2xl shadow-black/40">
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl border-y border-zinc-800 px-6 py-10 md:px-10">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <p class="text-4xl font-bold text-white">34+</p>
+          <p class="mt-1 text-sm text-zinc-400">Projects done</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-white">21+</p>
+          <p class="mt-1 text-sm text-zinc-400">Happy clients</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-white">2+</p>
+          <p class="mt-1 text-sm text-zinc-400">Years experience</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-white">100%</p>
+          <p class="mt-1 text-sm text-zinc-400">On-time delivery</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="mx-auto max-w-7xl px-6 py-24 md:px-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Services</p>
+      <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">What I can do for your product</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <h3 class="text-xl font-semibold text-white">UI/UX Design</h3>
+          <p class="mt-4 text-sm leading-relaxed text-zinc-400">Clean, intuitive interfaces with thoughtful information hierarchy and user journeys that improve retention and engagement.</p>
+        </article>
+        <article class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <h3 class="text-xl font-semibold text-white">Frontend Development</h3>
+          <p class="mt-4 text-sm leading-relaxed text-zinc-400">Fast, responsive, and accessible web applications using modern frontend architecture and scalable component systems.</p>
+        </article>
+        <article class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <h3 class="text-xl font-semibold text-white">Landing Pages</h3>
+          <p class="mt-4 text-sm leading-relaxed text-zinc-400">High-converting marketing pages focused on clear messaging, trust-building layouts, and conversion-ready CTAs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="mx-auto max-w-7xl px-6 py-24 md:px-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Selected work</p>
+      <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Recent projects</h2>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <article class="group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/60 hover:shadow-[0_18px_45px_rgba(0,0,0,0.45)] md:row-span-2 md:h-full">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" alt="Dinknesh Event Management System preview" class="h-72 w-full object-cover transition-all duration-300 group-hover:scale-[1.03] md:h-[430px]">
+          <div class="p-7">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#ff5c35]/10 px-3 py-1 text-xs font-medium text-[#ff5c35]">Web App</span>
+              <span class="rounded-full bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-300">Event Management</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-white">Dinknesh Event Management System</h3>
+            <p class="mt-4 text-sm leading-relaxed text-zinc-400">A complete event workflow platform for planning, registration, and management. Built to simplify operations and improve attendee engagement.</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-white transition-all duration-300 hover:text-[#ff5c35]">View case study →</a>
+          </div>
+        </article>
+
+        <article class="group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/60 hover:shadow-[0_16px_38px_rgba(0,0,0,0.42)]">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=80" alt="Movie Database Website preview" class="h-64 w-full object-cover transition-all duration-300 group-hover:scale-[1.03]">
+          <div class="p-7">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#ff5c35]/10 px-3 py-1 text-xs font-medium text-[#ff5c35]">Frontend</span>
+              <span class="rounded-full bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-300">React + API</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-white">Movie Database Website</h3>
+            <p class="mt-4 text-sm leading-relaxed text-zinc-400">A responsive movie explorer with streamlined search, rich details, and performance-focused rendering for smooth discovery experiences.</p>
+            <a href="https://moviedb-gamma-silk.vercel.app/" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex text-sm font-semibold text-white transition-all duration-300 hover:text-[#ff5c35]">View case study →</a>
+          </div>
+        </article>
+
+        <article class="group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/60 hover:shadow-[0_16px_38px_rgba(0,0,0,0.42)]">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" alt="Gym Management System Website preview" class="h-64 w-full object-cover transition-all duration-300 group-hover:scale-[1.03]">
+          <div class="p-7">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#ff5c35]/10 px-3 py-1 text-xs font-medium text-[#ff5c35]">Business Website</span>
+              <span class="rounded-full bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-300">System Design</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-white">Gym Management System Website</h3>
+            <p class="mt-4 text-sm leading-relaxed text-zinc-400">A practical website architecture for gym operations, member handling, and activity organization with a clear admin-oriented structure.</p>
+            <a href="#" class="mt-5 inline-flex text-sm font-semibold text-white transition-all duration-300 hover:text-[#ff5c35]">View case study →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:px-10 lg:grid-cols-2">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">About me</p>
+        <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Engineering mindset, product-focused execution</h2>
+        <p class="mt-6 text-sm leading-relaxed text-zinc-400">
+          I am Abel Endale, an Electrical &amp; Computer Engineering student at Addis Ababa University with specialization in computer stream. I craft modern digital experiences with strong visual polish, clear UX, and reliable frontend architecture.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+          I enjoy building solutions that are both technically solid and conversion-driven, helping products communicate value quickly and effectively.
+        </p>
+        <div class="mt-8">
+          <img src="assets/alx-certificate.png" alt="ALX certificate of completion for Front-End Web Development" class="rounded-2xl border border-zinc-800">
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Stack</p>
+        <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">Tailwind CSS</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">Alpine.js</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">JavaScript</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">React</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">Figma</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">HTML5</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">CSS3</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">Git/GitHub</span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200">REST APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="mx-auto max-w-7xl px-6 py-24 md:px-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Testimonials</p>
+      <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">What people say</h2>
+
+      <div class="mt-10 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8">
+        <template x-if="testimonial === 0">
+          <figure>
+            <blockquote class="text-xl italic leading-relaxed text-zinc-200">“Abel delivered a polished interface that instantly improved user trust and made our product feel premium.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4">
+              <img src="https://i.pravatar.cc/64?img=12" alt="Client avatar: Samir" class="h-12 w-12 rounded-full">
+              <div>
+                <p class="font-semibold text-white">Samir K.</p>
+                <p class="text-sm text-zinc-400">Product Manager</p>
+              </div>
+            </figcaption>
+          </figure>
+        </template>
+        <template x-if="testimonial === 1">
+          <figure>
+            <blockquote class="text-xl italic leading-relaxed text-zinc-200">“Fast delivery, clear communication, and excellent UI judgment. Highly recommended for frontend projects.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4">
+              <img src="https://i.pravatar.cc/64?img=32" alt="Client avatar: Hana" class="h-12 w-12 rounded-full">
+              <div>
+                <p class="font-semibold text-white">Hana T.</p>
+                <p class="text-sm text-zinc-400">Startup Founder</p>
+              </div>
+            </figcaption>
+          </figure>
+        </template>
+        <template x-if="testimonial === 2">
+          <figure>
+            <blockquote class="text-xl italic leading-relaxed text-zinc-200">“Abel translated our ideas into a clean, conversion-focused web experience with great responsiveness.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-4">
+              <img src="https://i.pravatar.cc/64?img=47" alt="Client avatar: Meron" class="h-12 w-12 rounded-full">
+              <div>
+                <p class="font-semibold text-white">Meron D.</p>
+                <p class="text-sm text-zinc-400">Marketing Lead</p>
+              </div>
+            </figcaption>
+          </figure>
+        </template>
+
+        <div class="mt-8 flex items-center gap-3">
+          <button @click="testimonial = (testimonial + 2) % 3" class="rounded-full border border-zinc-700 px-3 py-1 text-sm text-zinc-300 transition-all duration-300 hover:border-[#ff5c35] hover:text-[#ff5c35]">Prev</button>
+          <button @click="testimonial = (testimonial + 1) % 3" class="rounded-full border border-zinc-700 px-3 py-1 text-sm text-zinc-300 transition-all duration-300 hover:border-[#ff5c35] hover:text-[#ff5c35]">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="mx-auto max-w-7xl px-6 py-24 md:px-10">
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Blog &amp; thoughts</p>
+      <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">Insights on design and frontend engineering</h2>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <article class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Laptop and code editor for frontend workflow" class="h-44 w-full object-cover">
+          <div class="p-6">
+            <p class="text-xs text-zinc-400"><span class="text-[#ff5c35]">Frontend</span> • July 2026</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Designing fast interfaces without sacrificing aesthetics</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">How to combine visual polish, speed, and accessibility for production-grade UI.</p>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="Modern desk setup representing developer productivity" class="h-44 w-full object-cover">
+          <div class="p-6">
+            <p class="text-xs text-zinc-400"><span class="text-[#ff5c35]">Productivity</span> • June 2026</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">My workflow for shipping frontend projects faster</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">A practical process from wireframe to polished deployment with fewer revisions.</p>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/50">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Coding screen with UI components and prototyping tools" class="h-44 w-full object-cover">
+          <div class="p-6">
+            <p class="text-xs text-zinc-400"><span class="text-[#ff5c35]">Case Study</span> • May 2026</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">Lessons from building my movie database website</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">What worked, what didn’t, and the decisions that improved engagement.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-7xl px-6 py-24 md:px-10">
+      <div class="grid gap-10 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 md:grid-cols-2 md:p-10">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#ff5c35]">Contact</p>
+          <h2 class="mt-4 text-3xl font-bold text-white">Let’s build something exceptional</h2>
+          <p class="mt-5 text-sm leading-relaxed text-zinc-400">I’m open to internships, freelance projects, and frontend collaborations.</p>
+          <div class="mt-8 space-y-3 text-sm">
+            <p><a href="mailto:abelendale1123@outlook.com" class="transition-all duration-300 hover:text-[#ff5c35]">Email: abelendale1123@outlook.com</a></p>
+            <p><a href="https://www.linkedin.com/in/abel-endale/" target="_blank" rel="noopener noreferrer" class="transition-all duration-300 hover:text-[#ff5c35]">LinkedIn: /in/abel-endale</a></p>
+            <p><a href="https://github.com/Abel8866" target="_blank" rel="noopener noreferrer" class="transition-all duration-300 hover:text-[#ff5c35]">GitHub: @Abel8866</a></p>
+          </div>
+        </div>
+
+        <form class="space-y-5" action="#" method="post">
+          <div>
+            <label for="name" class="mb-2 block text-sm text-zinc-300">Name</label>
+            <input id="name" name="name" type="text" required class="w-full border-b border-zinc-700 bg-transparent px-0 py-3 text-white outline-none transition-all duration-300 placeholder:text-zinc-500 focus:border-[#ff5c35]" placeholder="Your name">
+          </div>
+          <div>
+            <label for="email" class="mb-2 block text-sm text-zinc-300">Email</label>
+            <input id="email" name="email" type="email" required class="w-full border-b border-zinc-700 bg-transparent px-0 py-3 text-white outline-none transition-all duration-300 placeholder:text-zinc-500 focus:border-[#ff5c35]" placeholder="your@email.com">
+          </div>
+          <div>
+            <label for="message" class="mb-2 block text-sm text-zinc-300">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full border-b border-zinc-700 bg-transparent px-0 py-3 text-white outline-none transition-all duration-300 placeholder:text-zinc-500 focus:border-[#ff5c35]" placeholder="Tell me about your project"></textarea>
+          </div>
+          <button type="submit" class="rounded-full bg-[#ff5c35] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ff724f]">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-800 py-8 text-center">
+    <p class="text-sm text-zinc-500">© Abel. All rights reserved.</p>
+    <p class="mt-1 text-sm text-zinc-500">Developed by Abel Endale</p>
+  </footer>
+</body>
+</html>
