@@ -28,7 +28,7 @@ const portfolioData = {
       stack: "Event Management"
     },
     {
-      title: "Movie Database Website",
+      title: "Movie Database Website Application",
       description:
         "A responsive movie explorer with streamlined search, rich details, and performance-focused rendering for smooth discovery experiences.",
       link: "https://moviedb-gamma-silk.vercel.app/",

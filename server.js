@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(__dirname));
 
-app.get("/api/data", (req, res) => {
+app.get("/api/portfolio", (req, res) => {
   res.json(portfolioData);
 });
 
