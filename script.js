@@ -63,3 +63,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error loading portfolio data:", error);
   }
 });
+
+async function loadPortfolio() {
+  const res = await fetch("/api/data");
+  const data = await res.json();
+
+  document.querySelector("#about").textContent = data.about;
+
+  const projectsContainer = document.querySelector("#work");
+  projectsContainer.innerHTML = "";
+  data.projects.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.imageAlt}" class="rounded-lg mb-4">
+      <h3 class="text-lg font-semibold">${p.title}</h3>
+      <p class="text-sm text-zinc-400">${p.description}</p>
+      <a href="${p.link}" target="_blank" class="text-blue-400 hover:underline">View Project</a>
+    `;
+    projectsContainer.appendChild(card);
+  });
+}
+
+loadPortfolio();
+setInterval(loadPortfolio, 5000);
+

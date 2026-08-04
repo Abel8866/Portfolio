@@ -11,9 +11,12 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(__dirname));
 
-app.get("/api/portfolio", (req, res) => {
+app.get("/api/data", (req, res) => {
+  delete require.cache[require.resolve("./data.js")]; // clear cache
+  const portfolioData = require("./data.js");
   res.json(portfolioData);
 });
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));

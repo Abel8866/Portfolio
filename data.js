@@ -1,9 +1,8 @@
 const portfolioData = {
   name: "Abel Endale",
-  title:
-    "Electrical & Computer Engineering Student | Frontend Developer",
+  title: "Electrical & Computer Engineering Student | Frontend Developer",
   about:
-    "I am Abel Endale, an Electrical & Computer Engineering student at Addis Ababa University with specialization in computer stream. I craft modern digital experiences with strong visual polish, clear UX, and reliable frontend architecture.",
+    "I am Abel Endale , an Electrical & Computer Engineering student at Addis Ababa University specializing in computer stream. I craft modern digital experiences with strong visual polish, clear UX, and reliable frontend architecture.",
   skills: [
     "Tailwind CSS",
     "Alpine.js",
@@ -30,7 +29,7 @@ const portfolioData = {
     {
       title: "Movie Database Website Application",
       description:
-        "A responsive movie explorer with streamlined search, rich details, and performance-focused rendering for smooth discovery experiences.",
+        "A responsive movie explorer with streamlined search, rich details, and performance‑focused rendering for smooth discovery experiences.",
       link: "https://moviedb-gamma-silk.vercel.app/",
       image:
         "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1400&q=80",
@@ -39,9 +38,9 @@ const portfolioData = {
       stack: "React + API"
     },
     {
-      title: "Gym Management System Website application",
+      title: "Gym Management System Website Application",
       description:
-        "A practical website architecture for gym operations, member handling, and activity organization with a clear admin-oriented structure.",
+        "A practical website architecture for gym operations, member handling, and activity organization with a clear admin‑oriented structure.",
       link: "#",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
