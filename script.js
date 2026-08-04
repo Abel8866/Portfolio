@@ -1,72 +1,65 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menu-btn");
-  const navLinks = document.getElementById("nav-links");
-  const typedWord = document.getElementById("typed-word");
-  const year = document.getElementById("year");
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+document.addEventListener("DOMContentLoaded", async () => {
+  const nameEl = document.getElementById("name");
+  const titleEl = document.getElementById("title");
+  const aboutEl = document.getElementById("about");
+  const skillsContainer = document.getElementById("skills-container");
+  const projectsContainer = document.getElementById("projects-container");
 
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
+  try {
+    const response = await fetch("/api/data");
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
 
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
+    const data = await response.json();
+
+    if (nameEl) {
+      nameEl.textContent = data.name;
+    }
+
+    if (titleEl) {
+      titleEl.textContent = data.title;
+    }
+
+    if (aboutEl) {
+      aboutEl.textContent = data.about;
+    }
+
+    if (skillsContainer) {
+      skillsContainer.innerHTML = "";
+      data.skills.forEach((skill) => {
+        const skillTag = document.createElement("span");
+        skillTag.className =
+          "rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200";
+        skillTag.textContent = skill;
+        skillsContainer.appendChild(skillTag);
       });
-    });
-  }
+    }
 
-  const words = ["modern web solutions", "student-focused systems", "clean user interfaces", "practical digital products"];
-  let wordIndex = 0;
-  if (typedWord) {
-    setInterval(() => {
-      wordIndex = (wordIndex + 1) % words.length;
-      typedWord.textContent = words[wordIndex];
-    }, 1800);
-  }
+    if (projectsContainer) {
+      projectsContainer.innerHTML = "";
+      data.projects.forEach((project) => {
+        const article = document.createElement("article");
+        article.className =
+          "group overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5c35]/60 hover:shadow-[0_16px_38px_rgba(0,0,0,0.42)]";
 
-  const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        article.innerHTML = `
+          <img src="${project.image}" alt="${project.imageAlt}" class="h-64 w-full object-cover transition-all duration-300 group-hover:scale-[1.03]">
+          <div class="p-7">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#ff5c35]/10 px-3 py-1 text-xs font-medium text-[#ff5c35]">${project.category}</span>
+              <span class="rounded-full bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-300">${project.stack}</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-semibold text-white">${project.title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-zinc-400">${project.description}</p>
+            <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex text-sm font-semibold text-white transition-all duration-300 hover:text-[#ff5c35]">View case study →</a>
+          </div>
+        `;
+
+        projectsContainer.appendChild(article);
       });
-    },
-    { threshold: 0.15 }
-  );
-  reveals.forEach((item) => observer.observe(item));
-
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
-
-  if (form && status) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-
-      if (!name || !email || !message) {
-        status.textContent = "Please fill in all fields.";
-        return;
-      }
-
-      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!validEmail.test(email)) {
-        status.textContent = "Please enter a valid email address.";
-        return;
-      }
-
-      status.textContent = "Message sent successfully!";
-      form.reset();
-      setTimeout(() => {
-        status.textContent = "";
-      }, 3000);
-    });
+    }
+  } catch (error) {
+    console.error("Error loading portfolio data:", error);
   }
 });
