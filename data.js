@@ -39,7 +39,7 @@ const portfolioData = {
       stack: "React + API"
     },
     {
-      title: "Gym Management System Website",
+      title: "Gym Management System Website application",
       description:
         "A practical website architecture for gym operations, member handling, and activity organization with a clear admin-oriented structure.",
       link: "#",
